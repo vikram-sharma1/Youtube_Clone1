@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/683b4b40e3.js" 	crossorigin="anonymous"></script>
+    <style>
+        #main{
+            width: 98%;
+            margin: auto;
+        }
+        .navbar{
+            display: flex;
+            height: 60px;
+
+        }
+        .image{
+            width: 110%;
+            height: 95%;
+            margin-left: 5%;
+        }
+        .one{
+            flex: 2;
+            display: flex;
+        }
+        .two{
+            flex: 8;
+            height: 95%;
+
+        }.three{
+            flex: 2;
+            display: flex;
+            justify-content: space-evenly;
+           
+
+        }
+        .fas,.far{
+            font-size: 25px;
+            margin-top: 15px;
+        }
+        input{
+            height: 45%;
+            width: 65%;
+            margin-top: 15px;
+            margin-left: 45px;
+
+        }
+        .butt{
+            height: 55%;
+            width: 10%;
+            margin-top: 15px;
+        }
+        .demo{
+            display: flex;
+            gap: 15px;
+
+        }
+        .demo > button{
+            border:0px solid turquoise;
+            border-radius: 25px;
+            width: 100%;
+            height: 25px;
+        }
+        .details{
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+        }
+        .filter{
+            flex: 1.1;
+            height: 600px;
+            overflow: scroll;
+            
+        }
+            ::-webkit-scrollbar{
+                border-radius: 10px;
+                background-color: rgb(228, 228, 228);
+                width: 5px;
+                height: 0px;
+            }
+
+
+
+        .data{
+            flex: 6;
+            /* border: 1px solid black; */
+            height: 1200px;
+            display: grid;
+            grid-template-columns: repeat(3, 32%);
+            grid-gap: 15px;
+        }
+        .data > div > img{
+            width: 100%;
+        }
+        .yt, .ytside{
+            margin-left: 25px;
+        }
+        .fillogo{
+            width: 90%;
+            margin: auto;
+            margin-top: 10px;
+            margin: 5px;
+        }
+        .logo {
+            font-size: 20px;
+            margin-top: 5px;
+            margin-left: 10px;
+
+        }
+        .name{
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            margin-left: 8px;
+            margin-top: -5px;
+        }
+        hr{
+            width: 90%;
+            margin: auto;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        .three{
+            margin-left: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="navbar">
+            <div class="one">
+                <i class="fas fa-bars ytside"></i>
+                <a href="question1.html"> <span class="yt"><img src="https://musically.com/wp-content/uploads/2019/03/youtube-1200x500.jpg" class="image" alt=""></span></a>
+            </div>
+            <div class="two">
+                <input type="text" id="name">
+                <button onclick="search()" class="butt">Search</button>
+            </div>
+            <div class="three">
+                <i class="fas fa-camera"></i>
+                <i class="fas fa-th"></i>
+                <i class="far fa-user-circle"></i>
+            </div>
+        </div>
+        <div class="demo">
+            <button>All</button>
+            <button>Music</button>
+            <button><b>Trending</b></button>
+            <button>Bollywood</button>
+            <button>T-Series</button>
+            <button><b>Trending</b></button>
+            <button>B Praak</button>
+            <button>Mixes</button>
+            <button><b>Trending</b></button>
+            <button>Live</button>
+        </div>
+        <div class="details">
+
+            <div class="filter">
+                <div class="fillogo">
+                    <span><i class="fas fa-house-user"></i></i></span>
+                    <span class="name">Home</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="far fa-compass"></i></i></span>
+                    <span class="name">Explore</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-film"></i></span>
+                    <span class="name">Subscriptions</span>
+                </div>
+                <hr>
+
+
+                <div class="fillogo">
+                    <span><i class="fas fa-photo-video"></i></span>
+                    <span class="name">Library</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-history"></i></span>
+                    <span class="name">History</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="far fa-clock"></i></span>
+                    <span class="name">Watch later</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="far fa-thumbs-up"></i></span>
+                    <span class="name">Liked Videos</span>
+                </div>
+                <hr>
+
+                <h5 class="three">SUBSCRIPTIONS</h5>
+                <div class="fillogo">
+                    <span><i class="fas fa-music"></i></span>
+                    <span class="name">Music</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-trophy"></i></span>
+                    <span class="name">Sports</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-headset"></i></span>
+                    <span class="name">Gaming</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-ticket-alt"></i></span>
+                    <span class="name">Movies</span>
+                </div>
+                <hr>
+
+
+                <h5 class="three">MORE FROM YOUTUBE</h5>
+                <div class="fillogo">
+                    <span><i class="fab fa-youtube"></i></span>
+                    <span class="name">Youtube Premium</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-ticket-alt"></i></span>
+                    <span class="name">Movies</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-headset"></i></span>
+                    <span class="name">Gaming</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-stream"></i></span>
+                    <span class="name">Live</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-tshirt"></i></span>
+                    <span class="name">Fashion & Beauty</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="far fa-lightbulb"></i></span>
+                    <span class="name">Learning</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="fas fa-running"></i></span>
+                    <span class="name">Sports</span>
+                </div>
+                <hr>
+
+                <div class="fillogo">
+                    <span><i class="fas fa-cog"></i></span>
+                    <span class="name">Settings</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="far fa-flag"></i></span>
+                    <span class="name">Report History</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="far fa-question-circle"></i></span>
+                    <span class="name">Help</span>
+                </div>
+                <div class="fillogo">
+                    <span><i class="far fa-comment-alt"></i></span>
+                    <span class="name">Send Feedback</span>
+                </div>
+
+
+
+            </div>
+
+
+
+            <div class="data">
+
+                <!-- Video Data -->
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+<script>
+
+
+
+    async function video(){
+        var url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=trending&type=video&key=AIzaSyDWs7nKbD9xoUxmrS71G4EKAJh-CxtiG08&maxResults=25`
+        // var url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=tesla&type=video&key=AIzaSyDKOi7-IfT3jAGFW64Migcq8nMMXMv4SjM&maxResults=25 `
+
+        try{
+            var res = await fetch(url)
+            var data = await res.json()
+            data = data.items
+            console.log(data)
+            append(data)
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+
+    video()
+        const append = (data) =>{
+
+        document.querySelector('.data').innerHTML = ""
+        data.map(({snippet, id:{videoId}}) =>{
+
+
+            // console.log(el)
+            // console.log(snippet)
+            var div = document.createElement('div')
+
+            let dataShow = {
+                snippet,
+                videoId
+            }
+
+
+            div.addEventListener("click", function(){
+                myfunc(dataShow)
+            })
+            
+        
+            var image = document.createElement('img')
+            image.src = snippet.thumbnails.medium.url
+
+            var title = document.createElement('p')
+            title.textContent = snippet.title
+
+        //    console.log(image,title)
+            // console.log(snippet.thumbnails.medium)
+
+            div.append(image,title)
+
+            document.querySelector('.data').append(div)
+
+
+
+
+        })
+        }
+
+    function myfunc(dataShow){
+            
+
+
+            localStorage.setItem("video",JSON.stringify(dataShow))
+            window.location.href = "video.html"
+        }
+
+
+
+async function search(){
+
+    var name = document.querySelector('#name').value
+    var url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${name}&type=video&key=AIzaSyANvfYt8sUcwefZ-QnHMzDRs6PXW0wGQpE&maxResults=25`
+
+    async function video(){
+
+        try{
+            var res = await fetch(url)
+            var data = await res.json()
+            data = data.items
+            console.log(data)
+            append(data)
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+
+    video()
+
+    const append = (data) =>{
+
+        document.querySelector('.data').innerHTML = ""
+        data.map(({snippet, id:{videoId}}) =>{
+            // console.log(snippet)
+            var div = document.createElement('div')
+
+            let dataShow = {
+                snippet,
+                videoId
+            }
+
+
+            div.addEventListener("click", function(){
+                myfunc(dataShow)
+            })
+            
+            
+           var image = document.createElement('img')
+           image.src = snippet.thumbnails.medium.url
+
+           var title = document.createElement('p')
+           title.textContent = snippet.title
+
+        //    console.log(image,title)
+            // console.log(snippet.thumbnails.medium)
+
+            div.append(image,title)
+
+            document.querySelector('.data').append(div)
+        
+
+
+
+        })
+    }
+
+    function myfunc(dataShow){
+        
+
+
+        localStorage.setItem("video",JSON.stringify(dataShow))
+        window.location.href = "video.html"
+    }
+
+
+
+
+}
+
+
+</script>

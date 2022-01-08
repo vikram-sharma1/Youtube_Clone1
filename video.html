@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            width: 98%;
+            margin: auto;
+        }
+        .navbar{
+            display: flex;
+            height: 60px;
+
+        }
+        .image{
+            width: 110%;
+            height: 95%;
+            margin-left: 5%;
+        }
+        .one{
+            flex: 2;
+            display: flex;
+        }
+        .two{
+            flex: 8;
+            height: 95%;
+
+        }.three{
+            flex: 2;
+            display: flex;
+            justify-content: space-evenly;
+            margin-left: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+           
+
+        }
+        .fas,.far{
+            font-size: 25px;
+            margin-top: 15px;
+        }
+        input{
+            height: 45%;
+            width: 65%;
+            margin-top: 15px;
+            margin-left: 45px;
+
+        }
+        .butt{
+            height: 55%;
+            width: 10%;
+            margin-top: 15px;
+        }
+        .demo{
+            display: flex;
+            gap: 15px;
+
+        }
+        .demo > button{
+            border:0px solid turquoise;
+            border-radius: 25px;
+            width: 100%;
+            height: 25px;
+        }
+        .details{
+            margin-top: 25px;
+            /* display: flex; */
+            /* gap: 10px; */
+        }
+ 
+        .yt, .ytside{
+            margin-left: 25px;
+        }
+        
+        .name{
+            font-size: 16px;
+            font-family: 'Roboto', sans-serif;
+            margin-left: 8px;
+            margin-top: -5px;
+        }
+        
+        .data{
+            /* border: 1px solid black; */
+            /* height: 1200px; */
+            margin-top: 15px;
+            display: flex; 
+            gap: 25px;
+        }
+        #videoData{
+            flex: 3;
+            height: 600px;
+            /* border: 1px solid black; */
+
+        }
+        #videoData > div{
+            height: 100%;
+        }
+        #recommend{
+             flex: 1;
+            /* height: 600px; */
+
+            /* border: 1px solid black; */
+   
+        }
+        iframe{
+            /* border: 1px solid black; */
+            height: 90%;
+            width: 99%;
+        }
+        .main{
+            /* border: 1px solid black; */
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .div_img{
+            flex: 2.5;
+        }
+        .div_img > img{
+            width: 100%;
+            height: 100%;
+        }
+        .data_div{
+            /* border: 1px solid black; */
+            flex: 1.5;
+        }
+     
+      
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="navbar">
+            <div class="one">
+                <i class="fas fa-bars ytside"></i>
+               <a href="question1.html"> <span class="yt"><img src="https://musically.com/wp-content/uploads/2019/03/youtube-1200x500.jpg" class="image" alt=""></span></a>
+            </div>
+            <div class="two">
+                <input type="text" id="name">
+                <button class="butt">Search</button>
+            </div>
+            <div class="three">
+                <i class="fas fa-camera"></i>
+                <i class="fas fa-th"></i>
+                <i class="far fa-user-circle"></i>
+            </div>
+        </div>
+        <div class="demo">
+            <button>All</button>
+            <button>Music</button>
+            <button><b>Trending</b></button>
+            <button>Bollywood</button>
+            <button>T-Series</button>
+            <button><b>Trending</b></button>
+            <button>B Praak</button>
+            <button>Mixes</button>
+            <button><b>Trending</b></button>
+            <button>Live</button>
+        </div>
+        
+        
+        <div class="data">
+            <div id="videoData"></div>
+            <div id="recommend"></div>
+        </div>
+       
+
+    </div>
+</body>
+
+</html>
+
+<script>
+
+var {snippet, videoId} = JSON.parse(localStorage.getItem('video'));
+
+// console.log(snippet)
+// console.log(videoId)
+
+
+var div = document.createElement('div')
+
+var title = document.createElement('h3')
+title.textContent = snippet.title
+// console.log(title)
+
+var iframe = document.createElement('iframe')
+iframe.src = `https://www.youtube.com/embed/${videoId}`
+
+
+iframe.setAttribute("allowfullscreen", "true")
+
+div.append(iframe,title)
+
+document.querySelector('#videoData').append(div)
+
+
+// -----------------------------------------------------------------------------
+
+
+
+    async function video(){
+        var url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=default&type=video&key=AIzaSyANvfYt8sUcwefZ-QnHMzDRs6PXW0wGQpE&maxResults=15`
+
+        try{
+            var res = await fetch(url)
+            var data = await res.json()
+            data = data.items
+            // console.log(data)
+            append(data)
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+
+    video()
+
+
+        const append = (data) =>{
+
+        document.querySelector('#recommend').innerHTML = ""
+
+
+        data.map(({snippet, id:{videoId}}) =>{
+
+
+            // console.log(el)
+            // console.log(snippet)
+            var div_img = document.createElement('div')
+            div_img.setAttribute("class", 'div_img')
+            var data_div = document.createElement('div')
+            data_div.setAttribute("class", "data_div")
+           
+            
+        
+            var image = document.createElement('img')
+            image.src = snippet.thumbnails.medium.url
+
+            var title = document.createElement('p')
+            title.textContent = snippet.title
+
+            let dataShow = {
+                snippet,
+                videoId
+            }
+
+
+           
+            
+
+        //    console.log(image,title)
+            // console.log(snippet.thumbnails.medium)
+
+            var main = document.createElement('div')
+            main.setAttribute("class", "main")
+
+
+            main.addEventListener("click", function(){
+                myfunc(dataShow)
+            })
+
+            div_img.append(image)
+            data_div.append(title)
+
+            main.append(div_img,data_div)
+
+            document.querySelector('#recommend').append(main)
+
+
+
+
+        })
+        }
+
+        function myfunc(dataShow){
+            
+
+
+            localStorage.setItem("video",JSON.stringify(dataShow))
+            window.location.href = "video.html"
+        }
+
+</script>
